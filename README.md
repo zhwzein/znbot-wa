@@ -56,6 +56,7 @@ Edit file yg berada di 'config.json'
 }
 ```
 
+
 `owner`: nomor WhatsApp anda. 
 `prefix`: prefix bot. 
 `uaOverride`: your user agent.  
@@ -65,7 +66,7 @@ Edit file yg berada di 'config.json'
 > npm start
 ```
 
- Setelah itu, akan ada QR-CODE, buka WhatsApp-mu yg ingin dijadikan bot, lalu scan code-qr nya!
+Scan the QR code using your WhatsApp in your phone!
 
 # Features
 
