@@ -70,6 +70,9 @@ Scan the QR code using your WhatsApp in your phone!
 
 # Features
 
+|     Leveling     |  Availability  |
+| :--------------: | :------------: |
+| Leveling         |       ✔️       |
 
 |      Sticker Maker  | Availability |
 | :-----------------: | :----------: |
@@ -97,8 +100,9 @@ Scan the QR code using your WhatsApp in your phone!
 | Instagram Profile  |      ✔️      |
 | Twitter Profile    |      ✔️      |
 
-|   Group Security   | Availability |
+|        Owner       | Availability |
 | :----------------: | :----------: |
+| Add premium user   |      ✔️      |
 
 
 # Thanks to
