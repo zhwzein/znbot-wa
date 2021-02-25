@@ -35,7 +35,7 @@
 # Requirements
 * [Node.js](https://nodejs.org/en/)
 * [Git](https://git-scm.com/downloads)
-* [FFmpeg](https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2020-12-08-13-03/ffmpeg-n4.3.1-26-gca55240b8c-win64-gpl-4.3.zip) (for sticker GIF command)
+* [FFmpeg](https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2020-12-08-13-03/ffmpeg-n4.3.1-26-gca55240b8c-win64-gpl-4.3.zip)
 * Any text editor
 
 # Instalasi
@@ -57,9 +57,7 @@ Edit file yg berada di 'config.json'
 ```
 
 `owner`: nomor WhatsApp anda. 
-
 `prefix`: prefix bot. 
-
 `uaOverride`: your user agent.  
 
 ## 🆗 Menjalankan bot
@@ -67,12 +65,12 @@ Edit file yg berada di 'config.json'
 > npm start
 ```
 
- Setelah itu, akan ada QR-CODE, buka WhatsApp-mu yg ingin dijadikan bot, lalu scan code-qr nya!
+ScanQR code using your WhatsApp in your phone!
 
 # Features
 
 
-|      Sticker Maker  | Availability |
+| Sticker Maker       | Availability |
 | :-----------------: | :----------: |
 | Image to Sticker    |      ✔️      |
 | GIF/Video to Sticker|      ✔️      |
