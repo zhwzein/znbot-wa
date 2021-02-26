@@ -70,18 +70,21 @@ Scan the QR code using your WhatsApp in your phone!
 
 # Features
 
-|     Leveling     |  Availability  |
+|          BOT     |  Availability  |
 | :--------------: | :------------: |
+| Register         |       ✔️       |
 | Leveling         |       ✔️       |
+| Limit            |       ✔️       |
+| Premium          |       ✔️       |
 
 |      Sticker Maker  | Availability |
 | :-----------------: | :----------: |
 | Image to Sticker    |      ✔️      |
+| Sticker to Image    |      ✔️      |
 | GIF/Video to Sticker|      ✔️      |
 | Take Sticker        |      ✔️      |
 | Sticker GIF WM      |      ✔️      |
 | Sticker No crop     |      ✔️      |
-| Emoji to Sticker    |      ✔️      |
 
 |      Downloader     | Availability |
 | :-----------------: | :----------: |
@@ -93,6 +96,7 @@ Scan the QR code using your WhatsApp in your phone!
 |       Fun        | Availability |
 | :--------------: | :----------: |
 | SimSimi          |      ✔️      |
+| Emoji to Sticker |      ✔️      |
 
 |      Stalker       | Availability |
 | :----------------: | :----------: |
