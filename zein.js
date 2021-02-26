@@ -36,7 +36,7 @@ const { color, msgFilter, processTime, isUrl} = require('./function')
 const { msg } = require('./msg')
 const { downloader, stalker, fun } = require('./lib')
 const { register, limit, premium, level } = require('./data')
-const limitCount = 25
+const limitCount = 25 //Limit perhari Ubah sesuka hati owner
 const errorImg = 'https://i.ibb.co/KjSBWx4/Pics-Art-02-07-11-45-03.jpg'
 /********** END OF UTILS **********/
 
@@ -200,9 +200,10 @@ module.exports = handler = async (zn = new zn(), message) => {
                 if (!isRegistered) return await zn.reply(from, msg.notRegistered(), id)
                 await zn.sendText(from, msg.menu(jumlahUser, levelMenu, xpMenu, role, pushname, reqXpMenu, isPremium ? 'YES' : 'NO'))
             break
-
             case 'register': //By: Slavyam
                 if (isRegistered) return await zn.reply(from, msg.registeredAlready(), id)
+                if (limit.isLimit(sender.id, _limit, limitCount, isPremium, isOwner)) return await zn.reply(from, msg.limit(), id)
+                    limit.addLimit(sender.id, _limit, isPremium, isOwner) 
                 if (!q.includes('|')) return await zn.reply(from, msg.wrongFormatreg(), id)
                 const namaUser = q.substring(0, q.indexOf('|') - 1)
                 const umurUser = q.substring(q.lastIndexOf('|') + 2)
@@ -212,13 +213,33 @@ module.exports = handler = async (zn = new zn(), message) => {
                 console.log(color('REGISTER'), color(time, 'yellow'), 'Name:', color(namaUser, 'cyan'), 'Age:', color(umurUser, 'cyan'), 'Serial:', color(serialUser, 'cyan'))
             break
 
-
             // STICKER MAKER 
+            case 'stikertoimg':
+            case 'toimg':
+                if (!isRegistered) return await zn.reply(from, msg.notRegistered(), id)
+                if (isQuotedSticker) {
+                if (limit.isLimit(sender.id, _limit, limitCount, isPremium, isOwner)) return await zn.reply(from, msg.limit(), id)
+                    limit.addLimit(sender.id, _limit, isPremium, isOwner)
+                    await zn.reply(from, msg.wait(), id)
+                    try {
+                        const mediaData = await decryptMedia(quotedMsg, uaOverride)
+                        const imageBase64 = `data:${quotedMsg.mimetype};base64,${mediaData.toString('base64')}`
+                        await zn.sendFile(from, imageBase64, 'sticker.jpg', '', id)
+                    } catch (err) {
+                        console.error(err)
+                        await zn.reply(from, 'Error!', id)
+                    }
+                } else {
+                    await zn.reply(from, msg.wrongFormat(), id)
+                }
+            break
             case 'takestick':
             case 'take':
-                if (!isPremium) return await zn.reply(from, msg.notPremium(), id)
+                //if (!isPremium) return await zn.reply(from, msg.notPremium(), id)
                 if (!isRegistered) return await zn.reply(from, msg.notRegistered(pushname), id)
                     if (quotedMsg && quotedMsg.type == 'sticker') {
+                        if (limit.isLimit(sender.id, _limit, limitCount, isPremium, isOwner)) return await zn.reply(from, msg.limit(), id)
+                            limit.addLimit(sender.id, _limit, isPremium, isOwner) 
                         if (!q.includes('|')) return await zn.reply(from, `*FORMAT SALAH*\n\nReply sticker dengan caption *${prefix}takestick pack | author*\n\nContoh: ${prefix}takestick zein | uwu`, id)
                         await zn.reply(from, msg.wait(), id)
                         const packnames = q.substring(0, q.indexOf('|') - 1)
@@ -234,10 +255,11 @@ module.exports = handler = async (zn = new zn(), message) => {
                         await zn.reply(from, `Reply sticker yang ingin dicolong dengan caption *${prefix}takestick pack | author*\n\nContoh: ${prefix}takestick zein | uwu`, id)
                     }
             break
-
             case 'sgifwm':
                 if (!isRegistered) return await zn.reply(from, msg.notRegistered(pushname), id)
                 if (isMedia && type === 'video' || mimetype === 'image/gif') {
+                    if (limit.isLimit(sender.id, _limit, limitCount, isPremium, isOwner)) return await zn.reply(from, msg.limit(), id)
+                        limit.addLimit(sender.id, _limit, isPremium, isOwner) 
                     const namaPacksgif = q.substring(0, q.indexOf('|') - 1)
                     const authorPacksgif = q.substring(q.lastIndexOf('|') + 2)
                     await zn.reply(from, msg.wait(), id)
@@ -273,11 +295,12 @@ module.exports = handler = async (zn = new zn(), message) => {
                     await zn.reply(from, `Untuk membuat stickergif dengan watermark\ngunakan ${prefix}sgifwm author | packname`, id)
                 }
             break
-
             case 'stickernocrop':
             case 'stnc':
                 if (!isRegistered) return await zn.reply(from, msg.notRegistered(pushname), id)
                 if (isMedia && isImage || isQuotedImage) {
+                    if (limit.isLimit(sender.id, _limit, limitCount, isPremium, isOwner)) return await zn.reply(from, msg.limit(), id)
+                        limit.addLimit(sender.id, _limit, isPremium, isOwner) 
                     await zn.reply(from, msg.wait(), id)
                     const encryptMedia = isQuotedImage ? quotedMsg : message
                     const _mimetype = isQuotedImage ? quotedMsg.mimetype : mimetype
@@ -289,14 +312,13 @@ module.exports = handler = async (zn = new zn(), message) => {
                     await zn.reply(from, `Untuk membuat sticker no crop\nsilahkan *upload* atau reply foto dengan caption ${prefix}stnc`, id)
                 }
             break
-
             case 'sticker':
             case 'stiker':
                 if (!isRegistered) return  zn.reply(from, msg.notRegistered(pushname), id)
-				if (!isGroupMsg) return zn.reply(from, msg.groupOnly(), id)
-                if (limit.isLimit(sender.id, _limit, limitCount, isPremium, isOwner)) return await zn.reply(from, msg.limit(), id)
-                limit.addLimit(sender.id, _limit, isPremium, isOwner)  
+				//if (!isGroupMsg) return zn.reply(from, msg.groupOnly(), id)
                 if (isMedia && isImage || isQuotedImage) {
+                    if (limit.isLimit(sender.id, _limit, limitCount, isPremium, isOwner)) return await zn.reply(from, msg.limit(), id)
+                        limit.addLimit(sender.id, _limit, isPremium, isOwner) 
                     await zn.reply(from, msg.wait(), id)
                     const encryptMedia = isQuotedImage ? quotedMsg : message
                     const _mimetype = isQuotedImage ? quotedMsg.mimetype : mimetype
@@ -308,11 +330,12 @@ module.exports = handler = async (zn = new zn(), message) => {
                     await zn.reply(from, `Untuk membuat sticker\nsilahkan *upload* atau reply foto dengan caption ${prefix}sticker`, id)
                 }
             break
-
             case 'stickergif':
             case 'sgif':
                 if (!isRegistered) return await zn.reply(from, msg.notRegistered(pushname), id)
                 if (isMedia && type === 'video' || mimetype === 'image/gif') {
+                    if (limit.isLimit(sender.id, _limit, limitCount, isPremium, isOwner)) return await zn.reply(from, msg.limit(), id)
+                        limit.addLimit(sender.id, _limit, isPremium, isOwner) 
                     await zn.reply(from, msg.wait(), id)
                     try {
                         const mediaData = await decryptMedia(message, uaOverride)
@@ -344,77 +367,176 @@ module.exports = handler = async (zn = new zn(), message) => {
                     await zn.reply(from, `Untuk mengconvert GIF/Video menjadi stikergif silahkan upload video/gif dengan caption ${prefix}stikergif`, id)
                 }
             break
-
             //END OF STICKER MAKER
 
-
             //DOWNLOADER
-            
+            case 'play':
+                if (!isRegistered) return await zn.reply(from, msg.notRegistered(pushname), id)
+                if (limit.isLimit(sender.id, _limit, limitCount, isPremium, isOwner)) return await zn.reply(from, msg.limit(), id)
+                        limit.addLimit(sender.id, _limit, isPremium, isOwner) 
+                if (!query) return await zn.reply(from, `Untuk memutar musik dari YouTube\ngunakan ${prefix}play judul_lagu\n\nContoh: ${prefix}play martin garrix`, id)
+                await zn.reply(from, msg.wait(), id)
+                downloader.ytPlay(query)
+                .then(async ({result}) => {
+                    const { title, channel, duration, id, thumbnail, views, size, url, description, published_on } = await result
+                    if (Number(size.split('MB')[0]) >= 20.00) {
+                        await zn.sendFileFromUrl(from, thumbnail, 'thumbnail.jpg', `➸ *Judul*: ${title}\n➸ *ID*: ${id}\n➸ *Size*: ${size}\n\nGagal, maksimal size adalah *20MB*!\nSilahkan download sendiri melalui URL dibawah:\n${url}`, id)
+                    } else {
+                        await zn.sendFileFromUrl(from, thumbnail, 'thumbnail.jpg', `➸ *Judul*: ${title}\n➸ *Channel*: ${channel}\n➸ *ID*: ${id}\n➸ *Views*: ${views}\n➸ *Duration*: ${duration}\n➸ *Size*: ${size}\n➸ *Published On*: ${published_on}\n➸ *Description*: ${description}`, id)
+                        const downl = await fetch(url);
+                        const buffer = await downl.buffer(); 
+                        await fs.writeFile(`./temp/audio/${sender.id}.mp3`, buffer)
+                        await zn.sendFile(from, `./temp/audio/${sender.id}.mp3`, 'audio.mp3', '', id)
+                        console.log('Success sending Play MP3!')
+                        fs.unlinkSync(`./temp/audio/${sender.id}.mp3`)
+                    }
+                }) 
+                .catch(async (err) => {
+                    console.error(err)
+                    await zn.reply(from, 'Error!', id)
+                })
+                break
+                case 'igtv':
+                    if (!isRegistered) return await zn.reply(from, msg.notRegistered(pushname), id)
+                    if (limit.isLimit(sender.id, _limit, limitCount, isPremium, isOwner)) return await zn.reply(from, msg.limit(), id)
+                        limit.addLimit(sender.id, _limit, isPremium, isOwner) 
+                    if (!query) return await zn.reply(from, `Format salah!\nuntuk mendownload Instagram TV\ngunakan ${prefix}igtv link_igtv`, id)
+                    await zn.reply(from, msg.wait(), id)
+                    downloader.igtv(query)
+                    .then(async ({result}) => {
+                        const { username, thumb, full_name, video_url, duration, caption, comment, likes } = await result
+                        await zn.sendFileFromUrl(from, thumb, 'thumbnail.jpg', `➸ *Username*: ${username}\n➸ *Full Name*: ${full_name}\n➸ *Duration*: ${duration}\n➸ *Caption*: ${caption}\n➸ *Comment*: ${comment}\n➸ *Likes*: ${likes}`, id)
+                        await zn.sendFileFromUrl(from, video_url, 'igtv.mp4', '', id)
+                    }) 
+                    .catch(async (err) => {
+                        console.error(err)
+                        await zn.reply(from, 'Error!', id)
+                    })
+                break
+                case 'ytmp3':
+                    if (!isRegistered) return await zn.reply(from, msg.notRegistered(pushname), id)
+                    if (limit.isLimit(sender.id, _limit, limitCount, isPremium, isOwner)) return await zn.reply(from, msg.limit(), id)
+                        limit.addLimit(sender.id, _limit, isPremium, isOwner) 
+                    if (!query) return await zn.reply(from, `Format salah!\nuntuk mendownload YouTube to MP3\ngunakan ${prefix}ytmp3 link_video`, id)
+                    await zn.reply(from, msg.wait(), id)
+                    downloader.ytmp3(query)
+                    .then(async ({result}) => {
+                        const { judul, size, thumbnail, id, url, extension, source } = await result
+                        if (Number(size.split(' MB')[0]) >= 20.00) {
+                            await zn.sendFileFromUrl(from, thumbnail, 'thumbnail.jpg', `➸ *Judul*: ${judul}\n➸ *ID*: ${id}\n➸ *Size*: ${size}\n\nGagal, maksimal size adalah *20MB*!\nSilahkan download sendiri melalui URL dibawah:\n${url}`, id)
+                        } else {
+                        await zn.sendFileFromUrl(from, thumbnail, 'thumbnail.jpg', `➸ *Judul*: ${judul}\n➸ *Size*: ${size}\n➸ *ID*: ${id}\n➸ *Extensiom*: ${extension}\n➸ *Source*: ${source}\n\nSedang dikirim, sabar ya...`, id)
+                        await zn.sendFileFromUrl(from, url, 'ytmp3.mp3', '', id)
+                        }
+                    }) 
+                    .catch(async (err) => {
+                        console.error(err)
+                        await zn.reply(from, 'Error!', id)
+                    })
+                break
+                case 'ytmp4':
+                    if (!isRegistered) return await zn.reply(from, msg.notRegistered(pushname), id)
+                    if (limit.isLimit(sender.id, _limit, limitCount, isPremium, isOwner)) return await zn.reply(from, msg.limit(), id)
+                        limit.addLimit(sender.id, _limit, isPremium, isOwner) 
+                    if (!query) return await zn.reply(from, `Format salah!\nuntuk mendownload YouTube to MP4\ngunakan ${prefix}ytmp4 link_video`, id)
+                    await zn.reply(from, msg.wait(), id)
+                    downloader.ytmp4(query)
+                    .then(async ({result}) => {
+                        const { judul, id, source, imgUrl, urlVideo } = await result
+                        await zn.sendFileFromUrl(from, imgUrl, 'thumbnail.jpg', `➸ *Judul*: ${judul}\n➸ *ID*: ${id}\n➸ *Source*: ${source}\n\nSedang dikirim, sabar ya...`, id)
+                        await zn.sendFileFromUrl(from, urlVideo, 'ytmp3.mp3', '', id)
+                    }) 
+                    .catch(async (err) => {
+                        console.error(err)
+                        await zn.reply(from, 'Error!', id)
+                    })
+                break
             //END OF DOWNLOADER
 
             // STALKER
             case 'igstalk':
                 if (!isRegistered) return await zn.reply(from, msg.notRegistered(pushname), id)
+                if (limit.isLimit(sender.id, _limit, limitCount, isPremium, isOwner)) return await zn.reply(from, msg.limit(), id)
+                        limit.addLimit(sender.id, _limit, isPremium, isOwner) 
                 if (!q) return await zn.reply(from, `Format salah!\nuntuk meng-stalk akun Instagram seseorang, gunakan ${prefix}stalkig username\n\nContoh: ${prefix}stalkig videfikri`, id)
                 await zn.reply(from, msg.wait(), id)
                 stalker.instagram(q)
                 .then(async ({result}) => {
-                    const { full_name, username, bio, followers, following, post_count, profile_hd, is_verified, is_private, external_url, fbid, show_suggested_profile } = await result
-                    await zn.sendFileFromUrl(from, profile_hd, 'ProfileIgStalker.jpg', `➸ *Username*: ${username}\n *Full Name*: ${full_name}\n➸ *Biography*: ${bio}\n➸ *Followers*: ${followers}\n➸ *Following*: ${following}\n➸ *Post*: ${post_count}\n➸ *Is_Verified*: ${is_verified}\n➸ *Is_Private*: ${is_private}\n➸ *External URL*: ${external_url}\n➸ *FB ID*: ${fbid}\n➸ *Show Suggestion*: ${show_suggested_profile}`, id)
+                    const { full_name, username, bio, followers, following, post_count, profile_hd, is_verified, is_private } = await result
+                    await zn.sendFileFromUrl(from, profile_hd, 'ProfileIgStalker.jpg', `*_INSTAGRAM STALK_*\n\n*Username :* ${username}\n*Full Name :* ${full_name}\n*Biography :* ${bio}\n*Followers :* ${followers}\n*Following :* ${following}\n*Post :* ${post_count}\n*Verified :* ${is_verified}\n*Private :* ${is_private}`, id)
+                }) 
+                .catch(async (err) => {
+                    console.error(err)
+                    await zn.reply(from, 'Error!', id)
                 })
             break
-
             case 'twitprof':
+            case 'twitstalk':
                 if (!isRegistered) return await zn.reply(from, msg.notRegistered(pushname), id)
+                if (limit.isLimit(sender.id, _limit, limitCount, isPremium, isOwner)) return await zn.reply(from, msg.limit(), id)
+                        limit.addLimit(sender.id, _limit, isPremium, isOwner) 
                 if (!q) return await zn.reply(from, `Format salah!\nuntuk meng-stalk akun Twitter seseorang\ngunakan ${prefix}twtprof username`, id)
                 await zn.reply(from, msg.wait(), id)
                 stalker.twitter(q)
                 .then(async ({result}) => {
                     const { full_name, username, followers, following, tweets, profile, verified, listed_count, favourites, joined_on, profile_banner } = await result
-                    await zn.sendFileFromUrl(from, profile, 'ProfileTwitter.jpg', `➸ *Username*: ${username}\n *Full Name*: ${full_name}\n➸ *Followers*: ${followers}\n➸ *Following*: ${following}\n➸ *Tweet*: ${tweets}\n➸ *Is_Verified*: ${verified}\n➸ *Favourites*: ${favourites}\n➸ *Listed Count*: ${listed_count}\n➸ *Joined On*: ${joined_on}\n➸ *Profile Banner*: ${profile_banner}`, id)
+                    await zn.sendFileFromUrl(from, profile, 'ProfileTwitter.jpg', `*_TWITTER STALK_*\n\n*Username :* ${username}\n*Full Name :* ${full_name}\n*Followers :* ${followers}\n*Following :* ${following}\n*Tweet :* ${tweets}\n*Favourites :* ${favourites}\n*Listed Count :* ${listed_count}\n\n*Joined On :*\n${joined_on}`, id)
+                }) 
+                .catch(async (err) => {
+                    console.error(err)
+                    await zn.reply(from, 'Error!', id)
                 })
             break
-
             case 'github':
                 if (!isRegistered) return await zn.reply(from, msg.notRegistered(pushname), id)
+                if (limit.isLimit(sender.id, _limit, limitCount, isPremium, isOwner)) return await zn.reply(from, msg.limit(), id)
+                        limit.addLimit(sender.id, _limit, isPremium, isOwner) 
                 if (!q) return await zn.reply(from, `Format salah!\nuntuk meng-stalk akun Github\ngunakan ${prefix}github username`, id)
                 await zn.reply(from, msg.wait(), id)
                 stalker.github(q)
                 .then(async ({result}) => {
                     const { username, id, profile_pic, fullname, company, blog, location, email, hireable, biografi, public_repository, public_gists, followers, following, joined_on, last_updated, profile_url} = await result
-                    await zn.sendFileFromUrl(from, profile_pic, 'ProfileGithub.jpg', `➸ *Username*: ${username}\n➸ *Full Name*: ${fullname}\n➸ *ID*: ${id}\n➸ *Company*: ${company}\n➸ *Blog*: ${blog}\n➸ *Location*: ${location}\n➸ *Email*: ${email}\n➸ *Hireable*: ${hireable}\n➸ *Biography*: ${biografi}\n➸ *Public Repository*: ${public_repository}\n➸ *Public Gists*: ${public_gists}\n➸ *Followers*: ${followers}\n➸ *Following*: ${following}\n➸ *Joined On*: ${joined_on}\n➸ *Last Updated*: ${last_updated}\n➸ *Profile URL*: ${profile_url}`, id)
+                    await zn.sendFileFromUrl(from, profile_pic, 'ProfileGithub.jpg', `*_GITHUB STALK_*\n\n*Username :* ${username}\n*Full Name :* ${fullname}\n*ID :* ${id}\n*Company :* ${company}\n*Blog :*\n${blog}\n\n*Location :* ${location}\n*Email :* ${email}\n*Hireable :* ${hireable}\n*Biography :* ${biografi}\n*Public Repository :* ${public_repository}\n*Public Gists :* ${public_gists}\n*Followers :* ${followers}\n*Following :* ${following}\n\n*Joined On :*\n${joined_on}\n\n*Last Updated :* ${last_updated}\n\n*Profile URL :*\n${profile_url}`, id)
+                }) 
+                .catch(async (err) => {
+                    console.error(err)
+                    await zn.reply(from, 'Error!', id)
                 })
             break
-
             // END OF STALKER
 
             // FUN MENU
-
             case 'simi':
                 if (!isRegistered) return await zn.reply(from, msg.notRegistered(pushname), id)
+                if (limit.isLimit(sender.id, _limit, limitCount, isPremium, isOwner)) return await zn.reply(from, msg.limit(), id)
+                        limit.addLimit(sender.id, _limit, isPremium, isOwner) 
                 if (!q) return await zn.reply(from, `Gunakan ${prefix}simi teks`, id)
                 fun.simsimi(q)
                 .then(async ({result}) => {
                     await zn.reply(from, result.jawaban, id)
                 })
             break
-
             // END OF FUN MENU
 
             // OTHERS
             case 'emot':
+            case 'emoji':    
                 if (!isRegistered) return await zn.reply(from, msg.notRegistered(pushname), id)
-                if (!q) return await zn.reply(from, `Format salah!\nuntuk meng-stalk akun Github\ngunakan ${prefix}github username`, id)
+                if (!q) return await zn.reply(from, `*FORMAT SALAH*\n\nBeri caption *${prefix}emoji emot*\n\nContoh: ${prefix}emoji 🐦`, id)
+                try {
+                if (limit.isLimit(sender.id, _limit, limitCount, isPremium, isOwner)) return await zn.reply(from, msg.limit(), id)
+                    limit.addLimit(sender.id, _limit, isPremium, isOwner)
                 await zn.reply(from, msg.wait(), id)
                 const emoji = emojiUnicode(q)
-                await zn.sendStickerfromUrl(from, `https://videfikri.com/api/emojitopng/?emojicode=${emoji}`)
+                await zn.sendImageAsSticker(from, await zn.download(`http://videfikri.com/api/emojitopng?emojicode=${emoji}`), { keepScale: true, author: '', pack: 'zenuwu'})
+            } catch (err) {
+                console.error(err)
+                await zn.reply(from, 'Error!', id)
+            }
             break
-
-            
             // END OF OTHERS
             
             // GROUP MENU
-
             case 'leveling':
                 if (!isRegistered) return await zn.reply(from, msg.notRegistered(), id)
                 if (!isGroupMsg) return await zn.reply(from, msg.groupOnly(), id)
@@ -436,11 +558,9 @@ module.exports = handler = async (zn = new zn(), message) => {
                     await zn.reply(from, msg.wrongFormat(), id)
                 }
             break
-
             //Group Menu End
 
             // User Menu
-
             case 'profile': //Cek Player Profile
             case 'me':
                 if (!isRegistered) return  zn.reply(from, msg.notRegistered(pushname), id)
@@ -482,12 +602,10 @@ module.exports = handler = async (zn = new zn(), message) => {
                     await zn.sendFileFromUrl(from, pfps, `${username}.jpg`, msg.profile(username, status, premi, benet, adm, levelMe, req, xpMe), id)
                 }
             break
-            
             case 'limit': //Cek Player Limit
                 if (isPremium || isOwner) return await zn.reply(from, 'Limit left: 999999\n\n*_Limit direset setiap menit_*', id)
                 await zn.reply(from, `Limit left: ${limit.getLimit(sender.id, _limit, limitCount)} / 25\n\n*_Limit direset pada pukul 00:00 WIB_*`, id)
             break
-            
             case 'level': //Cek Player Level
                 if (!isRegistered) return await zn.reply(from, msg.notRegistered(), id)
                 if (!isLevelingOn) return await zn.reply(from, `gomenasai onii chan!\nFitur leveling belum diaktifkan! Suruh admin group ini untuk mengaktifkan dengan mengetik *${prefix}leveling enable*`, id)
@@ -524,7 +642,6 @@ module.exports = handler = async (zn = new zn(), message) => {
                         await zn.reply(from, 'Error!', id)
                     })
             break
-
             case 'leaderboard': //Cek Leaderboard
             case 'leaderboards':
                 if (!isRegistered) return await zn.reply(from, msg.notRegistered(), id)
@@ -585,11 +702,9 @@ module.exports = handler = async (zn = new zn(), message) => {
                     await zn.reply(from, msg.minimalDb(), id)
                 }
             break
-            
             // Player Menu End
 
             // Owner Menu
-
             case 'premium': // Untuk Menambah Premium User
                 if (!isOwner) return await zn.reply(from, `Format salah! ketik ${prefix}belipremium`, id)
                 if (ar[0] === 'add') {
