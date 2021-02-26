@@ -39,9 +39,9 @@
 * Any text editor
 
 # installation
-## Clone Repo & Instalasi dependenci
+## Clone Repo & Instalasi dependencies
 ```bash
-> git clone https://github.com/zhwzein/zenbot
+> git clone https://github.com/zhwzein/znbot-wa
 > cd zenbot
 > npm install
 ```
