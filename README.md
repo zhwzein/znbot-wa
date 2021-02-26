@@ -42,7 +42,7 @@
 ## Clone Repo & Instalasi dependencies
 ```bash
 > git clone https://github.com/zhwzein/znbot-wa
-> cd zenbot
+> cd znbot-wa
 > npm install
 ```
 
