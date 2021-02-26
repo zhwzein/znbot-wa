@@ -10,7 +10,7 @@
   "author": "Zhwzein",
   "license": "MIT",
   "dependencies": {
-    "@open-wa/wa-automate": "^3.5.0",
+    "@open-wa/wa-automate": "^3.6.13",
     "axios": "^0.21.1",
     "canvacord": "^5.0.8",
     "chalk": "^4.1.0",
