@@ -18,7 +18,6 @@
 
 /********** MODULES **********/
 const { decryptMedia, zn } = require('@open-wa/wa-automate')
-const config = require('./config.json')
 const fs = require('fs-extra')
 const fetch = require('node-fetch')
 const emojiUnicode = require('emoji-unicode')
@@ -36,6 +35,7 @@ const { color, msgFilter, processTime, isUrl} = require('./function')
 const { msg } = require('./msg')
 const { downloader, stalker, fun } = require('./lib')
 const { register, limit, premium, level } = require('./data')
+const config = require('./config.json')
 const limitCount = 25 //Limit perhari Ubah sesuka hati owner
 const errorImg = 'https://i.ibb.co/KjSBWx4/Pics-Art-02-07-11-45-03.jpg'
 /********** END OF UTILS **********/
