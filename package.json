@@ -10,9 +10,9 @@
   "author": "Zhwzein",
   "license": "MIT",
   "dependencies": {
-    "@open-wa/wa-automate": "^3.6.13",
+    "@open-wa/wa-automate": "^3.10.2",
     "axios": "^0.21.1",
-    "canvacord": "^5.0.8",
+    "canvacord": "^5.1.0",
     "chalk": "^4.1.0",
     "emoji-unicode": "^2.0.1",
     "fluent-ffmpeg": "^2.1.2",
