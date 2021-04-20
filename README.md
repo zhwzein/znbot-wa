@@ -1,5 +1,5 @@
 <div align="center">
-<img src="https://i.ibb.co/KjSBWx4/Pics-Art-02-07-11-45-03.jpg" alt="vfbot-wa" width="300" />
+<img src="https://i.ibb.co/KjSBWx4/Pics-Art-02-07-11-45-03.jpg" alt="ZENZ-OPENWA" width="300" />
 
 # BOT WHATSAPP OPEN-WA LIB
 
@@ -11,9 +11,9 @@
   <a href="https://github.com/zhwzein"><img title="Author" src="https://img.shields.io/badge/Author-Zhwzein-red.svg?style=for-the-badge&logo=github" /></a>
 </p>
 <p align="center">
-  <a href="https://github.com/zhwzein/ZENZ-OPENWA"><img title="Stars" src="https://img.shields.io/github/stars/zhwzein/znbot-wa?color=red&style=flat-square" /></a>
-  <a href="https://github.com/zhwzein/ZENZ-OPENWA/network/members"><img title="Forks" src="https://img.shields.io/github/forks/zhwzein/znbot-wa?color=red&style=flat-square" /></a>
-  <a href="https://github.com/zhwzein/ZENZ-OPENWA/watchers"><img title="Watching" src="https://img.shields.io/github/watchers/zhwzein/znbot-wa?label=watchers&color=blue&style=flat-square" /></a> <br>
+  <a href="https://github.com/zhwzein/ZENZ-OPENWA"><img title="Stars" src="https://img.shields.io/github/stars/zhwzein/ZENZ-BAILEYS?color=red&style=flat-square" /></a>
+  <a href="https://github.com/zhwzein/ZENZ-OPENWA/network/members"><img title="Forks" src="https://img.shields.io/github/forks/zhwzein/ZENZ-BAILEYS?color=red&style=flat-square" /></a>
+  <a href="https://github.com/zhwzein/ZENZ-OPENWA/watchers"><img title="Watching" src="https://img.shields.io/github/watchers/zhwzein/ZENZ-BAILEYS?label=watchers&color=blue&style=flat-square" /></a> <br>
   <a href="https://www.npmjs.com/package/@open-wa/wa-automate"><img src="https://img.shields.io/npm/v/@open-wa/wa-automate.svg?color=green" /></a>
   <img src="https://img.shields.io/node/v/@open-wa/wa-automate" />
   <img src="https://img.shields.io/badge/maintained%3F-yes-green.svg?style=flat" />
