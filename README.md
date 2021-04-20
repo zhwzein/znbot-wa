@@ -1,7 +1,7 @@
 <div align="center">
 <img src="https://i.ibb.co/KjSBWx4/Pics-Art-02-07-11-45-03.jpg" alt="vfbot-wa" width="300" />
 
-# ZNBOT
+# BOT WHATSAPP OPEN-WA LIB
 
 >
 >
@@ -15,7 +15,7 @@
   <a href="https://github.com/zhwzein/znbot-wa/network/members"><img title="Forks" src="https://img.shields.io/github/forks/zhwzein/znbot-wa?color=red&style=flat-square" /></a>
   <a href="https://github.com/zhwzein/znbot-wa/watchers"><img title="Watching" src="https://img.shields.io/github/watchers/zhwzein/znbot-wa?label=watchers&color=blue&style=flat-square" /></a> <br>
   <a href="https://www.npmjs.com/package/@open-wa/wa-automate"><img src="https://img.shields.io/npm/v/@open-wa/wa-automate.svg?color=green" /></a>
-  <a href="https://app.fossa.com/projects/git%2Bgithub.com%2FSlavyanDesu%2FBocchiBot?ref=badge_shield" alt="FOSSA Status"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2FSlavyanDesu%2FBocchiBot.svg?type=shield"/></a>
+
   <img src="https://img.shields.io/node/v/@open-wa/wa-automate" />
   <img src="https://img.shields.io/badge/maintained%3F-yes-green.svg?style=flat" />
 </p>
@@ -32,13 +32,14 @@
 
 
 
-# Requirements
-* [Node.js](https://nodejs.org/en/)
-* [Git](https://git-scm.com/downloads)
-* [FFmpeg](https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2020-12-08-13-03/ffmpeg-n4.3.1-26-gca55240b8c-win64-gpl-4.3.zip)
-* Any text editor
+# REQUIREMENTS
+* [NODE JS](https://nodejs.org/en/)
+* [GIT](https://git-scm.com/downloads)
+* [FFMPEG](https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2020-12-08-13-03/ffmpeg-n4.3.1-26-gca55240b8c-win64-gpl-4.3.zip)
+* [WGET](https://eternallybored.org/misc/wget/releases/) 
+* TEXT EDITOR
 
-# installation
+# INSTALLATION
 ## Clone Repo & Instalasi dependencies
 ```bash
 > git clone https://github.com/zhwzein/znbot-wa
@@ -46,7 +47,7 @@
 > npm install
 ```
 
-## Edit file
+## EDIT FILES
 Edit file yg berada di 'config.json'
 ```json
 {
@@ -61,14 +62,14 @@ Edit file yg berada di 'config.json'
 `prefix`: prefix bot.  
 `uaOverride`: your user agent.  
 
-## Menjalankan bot
+## RUN BOT
 ```bash
 > npm start
 ```
 
 Scan the QR code using your WhatsApp in your phone!
 
-# Features
+# AVAILABLE FEATURES
 
 |          BOT     |  Availability  |
 | :--------------: | :------------: |
