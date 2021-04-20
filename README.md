@@ -49,13 +49,13 @@
 Edit file yg berada di 'config.json'
 ```json
 {
-  "owner": "6281288339373@c.us",
+  	"owner": "6281288339373@c.us",
 	"prefix": "$",
 	"uaOverride": "WhatsApp/2.2037.6 Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36",
 	"nao": "APIKEY",
 	"vhtear": "APIKEY",
-	"lol": "APIKEY"
-  "zapi": "zenz"
+	"lol": "APIKEY",
+  	"zapi": "zenz"
 }
 ```
 
@@ -63,6 +63,10 @@ Edit file yg berada di 'config.json'
 `owner`: nomor WhatsApp anda.  
 `prefix`: prefix bot.  
 `uaOverride`: your user agent.  
+`nao`: saucenao. (https://saucenao.com/)  
+`lol`: lolhuman API. (https://lolhuman.herokuapp.com/)  
+`zapi`: Zenz API. (http://zenz.herokuapp.com/)  
+
 
 ## RUN BOT
 ```bash
@@ -70,6 +74,15 @@ Edit file yg berada di 'config.json'
 ```
 
 Scan the QR code using your WhatsApp in your phone!
+
+# OPTIONAL
+
+|      OPTIONAL |
+| :-----------------: |
+| Rules BOT    |
+| Menu BOT    |
+| Register |
+
 
 # AVAILABLE FUNCTION
 
@@ -87,15 +100,6 @@ Scan the QR code using your WhatsApp in your phone!
 | Afk          |       ✔️       |
 | Uang          |       ✔️       |
 | Balance          |       ✔️       |
-
-
-# OPTIONAL
-
-|      OPTIONAL |
-| :-----------------: |
-| Rules BOT    |
-| Menu BOT    |
-| Register |
 
 # AVAILABLE FEATURES
 
