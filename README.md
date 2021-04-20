@@ -19,10 +19,10 @@
   <img src="https://img.shields.io/badge/maintained%3F-yes-green.svg?style=flat" />
 </p>
 <p align="center">
-  <a href="https://github.com/zhwzein/znbot-wa#requirements">Requirements</a> •
-  <a href="https://github.com/zhwzein/znbot-wa#installation">Installation</a> •
-  <a href="https://github.com/zhwzein/znbot-wa#features">Features</a> •
-  <a href="https://github.com/zhwzein/znbot-wa#thanks-to">Thanks to</a>
+  <a href="https://github.com/zhwzein/ZENZ-OPENWA#REQUIREMENTS">Requirements</a> •
+  <a href="https://github.com/zhwzein/ZENZ-OPENWA#INSTALLATION">Installation</a> •
+  <a href="https://github.com/zhwzein/ZENZ-OPENWA#AVAILABLE FEATURES">Features</a> •
+  <a href="https://github.com/zhwzein/ZENZ-OPENWA#thanks-to">Thanks to</a>
 </p>
 </div>
 
