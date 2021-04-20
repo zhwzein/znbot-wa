@@ -21,7 +21,6 @@
 <p align="center">
   <a href="https://github.com/zhwzein/ZENZ-OPENWA#REQUIREMENTS">Requirements</a> •
   <a href="https://github.com/zhwzein/ZENZ-OPENWA#INSTALLATION">Installation</a> •
-  <a href="https://github.com/zhwzein/ZENZ-OPENWA#AVAILABLE FEATURES">Features</a> •
   <a href="https://github.com/zhwzein/ZENZ-OPENWA#thanks-to">Thanks to</a>
 </p>
 </div>
