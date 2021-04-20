@@ -1,6 +1,8 @@
 const chalk = require('chalk')
+const crypto = require('crypto')
 const moment = require('moment-timezone')
 moment.tz.setDefault('Asia/Jakarta').locale('id')
+const fs = require('fs-extra')
 
 /**
  * Get text with color.
@@ -9,6 +11,15 @@ moment.tz.setDefault('Asia/Jakarta').locale('id')
  */
 const color = (text, color) => {
     return !color ? chalk.green(text) : chalk.keyword(color)(text)
+}
+
+/**
+ * Create serial ID.
+ * @param {number} size 
+ * @returns {string}
+ */
+const createSerial = (size) => {
+    return crypto.randomBytes(size).toString('hex').slice(0, size)
 }
 
 /**
@@ -30,10 +41,10 @@ const processTime = (timestamp, now) => {
     return moment.duration(now - moment(timestamp * 1000)).asSeconds()
 }
 
-
 /**
  * Client options.
  * @param {Function} start 
+ * @returns {object}
  */
 const options = (start) => {
     const options = {
@@ -79,8 +90,58 @@ const addFilter = (from) => {
     usedCommandRecently.add(from)
     setTimeout(() => {
         return usedCommandRecently.delete(from)
-    }, 5000) // 5 seconds delay.
+    }, 10000) // 5 seconds delay.
 }
+
+// Auto Update
+
+/**
+ * Returns an array of files.
+ * @param {*} dirPath 
+ * @param {string[]} [arrayOfFiles]
+ * @returns {string[]}
+ */
+ const getAllDirFiles = (dirPath, arrayOfFiles) => {
+    const files = fs.readdirSync(dirPath)
+    arrayOfFiles = arrayOfFiles || []
+    files.forEach((f) => {
+        if (fs.statSync(dirPath + '/' + f).isDirectory()) {
+            arrayOfFiles = getAllDirFiles(dirPath + '/' + f, arrayOfFiles)
+        } else {
+            arrayOfFiles.push(f)
+        }
+    })
+    return arrayOfFiles
+} 
+
+/**
+ * Uncache a changes.
+ * @param {*} module 
+ */
+const uncache = (module = '.') => {
+    return new Promise((resolve, reject) => {
+        try {
+            delete require.cache[require.resolve(module)]
+            resolve()
+        } catch (err) {
+            reject(err)
+        }
+    })
+}
+
+/**
+ * Delete file cache.
+ * @param {*} module 
+ * @param {*} call 
+ */
+const nocache = (module, call = () => {}) => {
+    console.log(color('[WATCH]', 'orange'), color(`=> '${module}'`, 'yellow'), 'file is now being watched by me!')
+    fs.watchFile(require.resolve(module), async () => {
+        await uncache(require.resolve(module))
+        call(module)
+    })
+}
+
 
 module.exports = {
     msgFilter: {
@@ -91,4 +152,8 @@ module.exports = {
     isUrl,
     processTime,
     options,
+    createSerial,
+    getAllDirFiles,
+    uncache,
+    nocache
 }

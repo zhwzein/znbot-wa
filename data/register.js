@@ -156,6 +156,24 @@ const createSerial = (size) => {
     return crypto.randomBytes(size).toString('hex').slice(0, size)
 }
 
+/**
+ * Get premium user index position.
+ * @param {string} userId 
+ * @param {object} _dir 
+ * @returns {Number}
+ */
+const getRegisteredPosition = (userId, _dir) => {
+    let position = null
+    Object.keys(_dir).forEach((i) => {
+        if (_dir[i].id === userId) {
+            position = i
+        }
+    })
+    if (position !== null) {
+        return position
+    }
+}
+
 module.exports = {
     addRegisteredUser,
     checkRegisteredUser,
@@ -166,5 +184,6 @@ module.exports = {
     getRegisteredIdFromSerial,
     getRegisteredRandomId,
     getRegisteredUserId,
-    createSerial
+    createSerial,
+    getRegisteredPosition
 }

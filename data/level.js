@@ -159,7 +159,7 @@ const addCooldown = (userId) => {
     xpGain.add(userId)
     setTimeout(() => {
         return xpGain.delete(userId)
-    }, 60000) // Each minute
+    }, 300000) // Each minute
 }
 
 module.exports = {

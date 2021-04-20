@@ -14,7 +14,7 @@ const isLimit = (userId, _dir, limitCount, isPremium, isOwner) => {
     let found = false
     for (let i of _dir) {
         if (i.id === userId) {
-            if (i.limit <= 0) {
+            if (i.limit >= 25) {
                 found = true
                 return true
             } else {
@@ -24,7 +24,7 @@ const isLimit = (userId, _dir, limitCount, isPremium, isOwner) => {
         }
     }
     if (found === false) {
-        const obj = { id: userId, limit: limitCount }
+        const obj = { id: userId, limit: 0 }
         _dir.push(obj)
         fs.writeFileSync('./database/user/limit.json', JSON.stringify(_dir))
         return false
@@ -47,20 +47,18 @@ const addLimit = (userId, _dir, isPremium, isOwner) => {
         }
     })
     if (pos !== null) {
-        _dir[pos].limit -= 1
+        _dir[pos].limit += 1
         fs.writeFileSync('./database/user/limit.json', JSON.stringify(_dir))
     }
 }
 
 /**
- * Add limit to user.
+ * Add user XP to db.
  * @param {string} userId 
+ * @param {number} amount 
  * @param {object} _dir 
- * @param {boolean} isPremium 
- * @param {boolean} isOwner 
  */
-const limitAdd = (userId, _dir, isPremium, isOwner) => {
-    if (isPremium || isOwner) return false
+const limitAdd = (userId, amount, _dir) => {
     let pos = null
     Object.keys(_dir).forEach((i) => {
         if (_dir[i].id === userId) {
@@ -68,11 +66,11 @@ const limitAdd = (userId, _dir, isPremium, isOwner) => {
         }
     })
     if (pos !== null) {
-        _dir[pos].limit += 1
+        _dir[pos].limit += amount
         fs.writeFileSync('./database/user/limit.json', JSON.stringify(_dir))
     }
 }
-		
+
 /**
  * Get user's limit.
  * @param {string} userId 
@@ -80,7 +78,7 @@ const limitAdd = (userId, _dir, isPremium, isOwner) => {
  * @param {number} limitCount 
  * @returns {number}
  */
-const getLimit = (userId, _dir, limitCount) => {
+const getLimit = (userId, _dir) => {
     let pos = null
     let found = false
     Object.keys(_dir).forEach((i) => {
@@ -90,10 +88,10 @@ const getLimit = (userId, _dir, limitCount) => {
         }
     })
     if (found === false && pos === null) {
-        const obj = { id: userId, limit: limitCount }
+        const obj = { id: userId, limit: 0 }
         _dir.push(obj)
         fs.writeFileSync('./database/user/limit.json', JSON.stringify(_dir))
-        return limitCount
+        return 0
     } else {
         return _dir[pos].limit
     }
