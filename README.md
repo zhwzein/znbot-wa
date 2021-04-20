@@ -49,9 +49,13 @@
 Edit file yg berada di 'config.json'
 ```json
 {
-    "owner": "62812xxxxxxxx@c.us", 
-    "prefix": "#",
-    "uaOverride": "WhatsApp/2.2037.6 Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+  "owner": "6281288339373@c.us",
+	"prefix": "$",
+	"uaOverride": "WhatsApp/2.2037.6 Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36",
+	"nao": "APIKEY",
+	"vhtear": "APIKEY",
+	"lol": "APIKEY"
+  "zapi": "zenz"
 }
 ```
 
@@ -67,17 +71,49 @@ Edit file yg berada di 'config.json'
 
 Scan the QR code using your WhatsApp in your phone!
 
-# AVAILABLE FEATURES
+# AVAILABLE FUNCTION
 
 |          BOT     |  Availability  |
 | :--------------: | :------------: |
-| Register         |       ✔️       |
+| Registered         |       ✔️       |
 | Leveling         |       ✔️       |
 | Limit            |       ✔️       |
 | Premium          |       ✔️       |
+| NSFW          |       ✔️       |
+| Antilink          |       ✔️       |
+| AntiSpam          |       ✔️       |
+| SimiSimi          |       ✔️       |
+| Banned           |       ✔️       |
+| Afk          |       ✔️       |
+| Uang          |       ✔️       |
+| Balance          |       ✔️       |
 
-|      Sticker Maker  | Availability |
+
+# OPTIONAL
+
+|      OPTIONAL |
+| :-----------------: |
+| Rules BOT    |
+| Menu BOT    |
+| Register |
+
+# AVAILABLE FEATURES
+
+|      Islami  | Availability |
 | :-----------------: | :----------: |
+| List Kota    |      ✔️      |
+| List Surah    |      ✔️      |
+| Jadwal Sholat    |      ✔️      |
+| Asmaul Husna |      ✔️      |
+| Kisah Nabi        |      ✔️      |
+| Audio Surah      |      ✔️      |
+| Audio Ayat     |      ✔️      |
+| Random Quran          |      ✔️      |
+
+| Sticker Maker       | Availability |
+| :-----------------: | :----------: |
+| Circle Image Sticker      |      ✔️      |
+| Circle Video Sticker      |      ✔️      |
 | Image to Sticker    |      ✔️      |
 | Sticker to Image    |      ✔️      |
 | GIF/Video to Sticker|      ✔️      |
@@ -85,28 +121,189 @@ Scan the QR code using your WhatsApp in your phone!
 | Sticker GIF WM      |      ✔️      |
 | Sticker No crop     |      ✔️      |
 
+
+| Sticker Features    | Availability |
+| :-----------------: | :----------: |
+| Find Sticker        |      ✔️      |
+| Telegram Sticker        |      ✔️      |
+| Random Gif Sticker  |      ✔️      |
+| Sticker Meme           |      ✔️      |
+| ATTP           |      ✔️      |
+| TTP           |      ✔️      |
+| TTP2           |      ✔️      |
+| Emoji Sticker           |      ✔️      |
+| AmongUS           |      ✔️      |
+| Mission Passed           |      ✔️      |
+| Triggered           |      ✔️      |
+| Wasted           |      ✔️      |
+| Invert           |      ✔️      |
+| Pixelate           |      ✔️      |
+| Pelangi           |      ✔️      |
+| Sepia           |      ✔️      |
+| Glass           |      ✔️      |
+| Merah           |      ✔️      |
+| Hijau           |      ✔️      |
+| Biru           |      ✔️      |
+
 |      Downloader     | Availability |
 | :-----------------: | :----------: |
-| YT to MP3           |      ✔️      |
-| YT to MP4           |      ✔️      |
-| Instagram TV        |      ✔️      |
-| Play MP3            |      ✔️      |
+| Instagram Downloader           |      ✔️      |
+| Twitter Downloader           |      ✔️      |
+| Facebook Downloader           |      ✔️      |
+| Play Video YT           |      ✔️      |
+| Play Audio YT           |      ✔️      |
+| XNXX Downloader          |      ✔️      |
+| TikTok Downloader           |      ✔️      |
+| Spotify Downloader           |      ✔️      |
+| Joox Downloader           |      ✔️      |
+| CocoFun Downloader           |      ✔️      |
+| Pinterest Downloader           |      ✔️      |
+| Pixiv Downloader           |      ✔️      |
+| Konachan Downloader           |      ✔️      |
+| Wallpaper Downloader           |      ✔️      |
+| Doujin Downloader          |      ✔️      |
+
+|       Music      | Availability |
+| :--------------: | :----------: |
+| Slow          |      ✔️      |
+| Pitch         |      ✔️      |
+| Bass          |      ✔️      |
+| Gemuk         |      ✔️      |
+| Pitch         |      ✔️      |
+| NightCore     |      ✔️      |
+| Pitch         |      ✔️      |
+| Tupai         |      ✔️      |
+| TTS          |      ✔️      |
+| To MP3          |      ✔️      |
 
 |       Fun        | Availability |
 | :--------------: | :----------: |
 | SimSimi          |      ✔️      |
-| Emoji to Sticker |      ✔️      |
+| Kerang Ajaib     |      ✔️      |
+| Zodiac         |      ✔️      |
+| DarkJokes         |      ✔️      |
+| Meme         |      ✔️      |
+| Wancak         |      ✔️      |
+| Quotes         |      ✔️      |
+| Cerita Pendek         |      ✔️      |
+| Cerita Horror         |      ✔️      |
+| Lirik         |      ✔️      |
+| Wikipedia         |      ✔️      |
+| Tebak Gambar         |      ✔️      |
+| Cak Lontong         |      ✔️      |
+| Family100         |      ✔️      |
+| Casino         |      ✔️      |
+| Suit         |      ✔️      |
+| Fight         |      ✔️      |
+
+|       Other        | Availability |
+| :--------------: | :----------: |
+| Asupan          |      ✔️      |
+| Resep          |      ✔️      |
+| Asupan          |      ✔️      |
+| Translate          |      ✔️      |
+| Covid18          |      ✔️      |
+| Distance          |      ✔️      |
+| Spam Call          |      ✔️      |
+| Spam SMS          |      ✔️      |
+| Spam Email          |      ✔️      |
+| Readmore          |      ✔️      |
+| Fake CC          |      ✔️      |
+| Fake Identity    |      ✔️      |
+
+|       Media        | Availability |
+| :--------------: | :----------: |
+| Trash          |      ✔️      |
+| Hitler          |      ✔️      |
+| Wanted          |      ✔️      |
+| GTA V           |      ✔️      |
+| Trump Tweet          |      ✔️      |
+| Harta Tahta          |      ✔️      |
+| Nulis          |      ✔️      |
+| Ph Comment          |      ✔️      |
+| Yt Comment          |      ✔️      |
+| Img To PDF          |      ✔️      |
+| 100+ Text Editor          |      ✔️      |
+
+|       WEBZEONE        | Availability |
+| :--------------: | :----------: |
+| Wattpad          |      ✔️      |
+| Jurnal Otakus          |      ✔️      |
+| Kuso Search          |      ✔️      |
+| LK21          |      ✔️      |
+| SSWEB          |      ✔️      |
+| Drakor          |      ✔️      |
+| XNXX          |      ✔️      |
+| Xhamster          |      ✔️      |
+| Wattpad          |      ✔️      |
+| Find Source Anime          |      ✔️      |
+| Character          |      ✔️      |
+| Doujinsi          |      ✔️      |
+
 
 |      Stalker       | Availability |
 | :----------------: | :----------: |
 | Github Profile     |      ✔️      |
 | Instagram Profile  |      ✔️      |
 | Twitter Profile    |      ✔️      |
+| TikTok Profile         |      ✔️      |
+| Youtube Profile         |      ✔️      |
+| ML Profile         |      ✔️      |
+| FF Profile         |      ✔️      |
 
-|        Owner       | Availability |
+|        Player      | Availability |
 | :----------------: | :----------: |
-| Add premium user   |      ✔️      |
+| Cek Profile   |      ✔️      |
+| Cek Balance   |      ✔️      |
+| Cek Level   |      ✔️      |
+| Cek LeadeBoard   |      ✔️      |
+| Cek Limit   |      ✔️      |
+| Buy Limit   |      ✔️      |
+| Buy Premium   |      ✔️      |
+| Cek Premium   |      ✔️      |
+| Cek Premium List   |      ✔️      |
+| Cek Block List   |      ✔️      |
+| Jadi Afk   |      ✔️      |
 
+|        Premium      | Availability |
+| :----------------: | :----------: |
+| Add Sticker, Video, Music, Image   |      ✔️      |
+| Del Sticker, Video, Music, Image   |      ✔️      |
+| Get Sticker, Video, Music, Image   |      ✔️      |
+| List Sticker, Video, Music, Image   |      ✔️      |
+
+|        Owner      | Availability |
+| :----------------: | :----------: |
+| Add Premium   |      ✔️      |
+| Give Limit   |      ✔️      |
+| LimitLess   |      ✔️      |
+| Unregister User  |      ✔️      |
+| Eval   |      ✔️      |
+| Get Session   |      ✔️      |
+| Mute BOT   |      ✔️      |
+
+|        Admin Group      | Availability |
+| :----------------: | :----------: |
+| Revoke Link   |      ✔️      |
+| Dell Message BOT   |      ✔️      |
+| Link Group   |      ✔️      |
+| Mute GC   |      ✔️      |
+| Owner GC   |      ✔️      |
+| ADD User   |      ✔️      |
+| Kick User   |      ✔️      |
+| Promote User   |      ✔️      |
+| Demote User   |      ✔️      |
+| Kick BOT   |      ✔️      |
+| Leveling Activating   |      ✔️      |
+| NSFW Activating   |      ✔️      |
+| AntiLink Activating   |      ✔️      |
+
+|        BOT      | Availability |
+| :----------------: | :----------: |
+| Cek Status   |      ✔️      |
+| Cek Owner   |      ✔️      |
+| Cek PING   |      ✔️      |
+| Cek Status   |      ✔️      |
 
 # Thanks to
 * [`Open-Wa/wa-automate-nodejs`](https://github.com/open-wa/wa-automate-nodejs)
