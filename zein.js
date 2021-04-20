@@ -1,7 +1,7 @@
 /*
  
  BOT WHATSAPP OPEN-WA LIB
- Source https://github.com/zhwzein/znbot-wa
+ Source https://github.com/zhwzein/ZENZ-OPENWA
  By Zen's
 
  */
