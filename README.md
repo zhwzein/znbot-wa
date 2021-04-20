@@ -308,7 +308,7 @@ Scan the QR code using your WhatsApp in your phone!
 | Cek PING   |      ✔️      |
 | Cek Status   |      ✔️      |
 
-## MORE FEATURE AVAIALABLE ( cek sendiri )
+## MORE FEATURE AVAILABLE ( cek sendiri )
 
 # Thanks to
 * [`Open-Wa/wa-automate-nodejs`](https://github.com/open-wa/wa-automate-nodejs)
